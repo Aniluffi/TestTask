@@ -6,32 +6,65 @@ using System.Threading.Tasks;
 
 namespace cocult
 {
-    class Triangle
+    /// <summary>
+    /// класс,для работы с треугольником
+    /// </summary>
+    class Triangle :Figure
     {
-        
 
-        public double Side { get; set; }
-        public double Side1 { get; set; }
-        public double Side2 { get; set; }
-        
+        /// <summary>
+        /// поле хранящее сторону 1 треуголника
+        /// </summary>
+        public double A { get; set; }
+        /// <summary>
+        /// поле хранящее сторону 2 треуголника
+        /// </summary>
+        public double B { get; set; }
+        /// <summary>
+        /// поле хранящее сторону 3 треуголника
+        /// </summary>
+        public double C { get; set; }
+
+        /// <summary>
+        /// конструктор
+        /// </summary>
+        /// <param name="side">ввод стороны 1 треуголника </param>
+        /// <param name="side1">ввод стороны 2 треуголника</param>
+        /// <param name="side2">ввод стороны 3 треуголника</param>
         public Triangle(double side, double side1, double side2)
         {
-            Side = side;
-            Side1 = side1;
-            Side2 = side2;
+            A = side;
+            B = side1;
+            C = side2;
         }
 
+        /// <summary>
+        /// метод для вычисления площади треугольника
+        /// </summary>
+        /// <returns>возращает площадь</returns>
         public double S()
         {
             double p = P() / 2;
 
-            return Math.Sqrt(p * (p - Side) * (p - Side1) * (p - Side2));
+            return Math.Sqrt(p * (p - A) * (p - B) * (p - C));
         }
 
+        /// <summary>
+        /// метод для вычисления периметра треугольника
+        /// </summary>
+        /// <returns>возращает периметр</returns>
         public double P()
         {
            
-            return Side + Side1 + Side2;
+            return A + B + C;
+        }
+
+        /// <summary>
+        /// метод для вывода информации о треугольнике
+        /// </summary>
+        public override void OutputInf()
+        {
+            Console.WriteLine($"Треугольник A = {A}; B = {B}; C = {C}");
         }
     }
 }

@@ -7,48 +7,48 @@ using System.Threading.Tasks;
 namespace cocult
 {
     /// <summary>
-    /// класс,для работы с кругом
+    /// класс,для работы с квадратом
     /// </summary>
-    class Circle :Figure
-    {
+    class Square :Figure
+    {  
         /// <summary>
-        /// поле хранящее радиус круга
+        /// поле хранящее длину стороны квадрата
         /// </summary>
-        public double R { get; set; }
+        public double A {  get; set; }
 
         /// <summary>
         /// конструктор
         /// </summary>
-        /// <param name="radius">ввод радиуса круга</param>
-        public Circle(double radius)
+        /// <param name="side">ввод стороны квадрата</param>
+        public Square(double side)
         {
-            R = radius;
+            this.A = side;
         }
 
         /// <summary>
-        /// метод для вычисления площади круга
+        /// метод для вычисления площади квадрата
         /// </summary>
         /// <returns>возращает площадь</returns>
         public double S()
         {
-            return Math.PI * Math.Pow( R,2);
+            return A * A;
         }
 
         /// <summary>
-        /// метод для вычисления периметра круга
+        /// метод для вычисления периметра квадрата
         /// </summary>
         /// <returns>возращает периметр</returns>
         public double P()
         {
-            return 2 * Math.PI * R;
+            return A * 4;
         }
 
         /// <summary>
-        /// метод для вывода информации о прямоугольнике
+        /// метод для вывода информации о квадрате
         /// </summary>
         public override void OutputInf()
         {
-            Console.WriteLine($"Круг R = {R};");
+            Console.WriteLine($"Квадрат A = {A};");
         }
     }
 }

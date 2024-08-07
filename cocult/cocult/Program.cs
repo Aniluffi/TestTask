@@ -3,11 +3,27 @@
 class Program
 {
     
+       /// <summary>
+       /// поле для хранения суммы периметров всех введенных фигур
+       /// </summary>
+       static double allSumP;
+
+       /// <summary>
+       /// поле для хранения суммы периметров всех введенных фигур
+       /// </summary>
+       static double allSumS;
+
+       /// <summary>
+       /// список для хранения данных о введенных фигурах 
+       /// </summary>
+       static List<Figure> listEnteredShapes = new List<Figure>();
+
+    /// <summary>
+    /// точка входа в приложение
+    /// </summary> 
     public static void Main()
     {
-        double allSumP = 0;
-        double allSumS = 0;
-        while(true)
+        while (true)
         {
             Console.WriteLine("\n1 - квадрат, вводим сторону одну" +
                 "\n2 - прямоугольник, вводим два стороны" +
@@ -15,7 +31,8 @@ class Program
                 "\n4 - треугольник, вводим три стороны" +
                 "\n5 - вывести сумму всех периметров" +
                 "\n6 - вывести сумму всех площадей" +
-                "\n7 - выйти из программы\n");
+                "\n7 - вывод списка всех фигур ранее введенных" +
+                "\n8 - выйти из программы\n");
 
             Console.WriteLine("Введите номер действия:");
 
@@ -31,7 +48,9 @@ class Program
 
                     double side = Convert.ToDouble(Console.ReadLine());
 
-                    Square sq = new Square(side); 
+                    Square sq = new Square(side);
+
+                    listEnteredShapes.Add(sq);
 
                     Console.WriteLine("Вы желаете найти S(1) или P(2)");
 
@@ -60,6 +79,8 @@ class Program
 
                     Rectangle rectangle = new Rectangle(side1,side2);
 
+                    listEnteredShapes.Add(rectangle);
+
                     Console.WriteLine("Вы желаете найти S(1) или P(2)");
 
                     int comand1 = Convert.ToInt32(Console.ReadLine());
@@ -85,6 +106,8 @@ class Program
                     double radius = Convert.ToDouble(Console.ReadLine());
 
                     Circle cir = new Circle(radius);
+
+                    listEnteredShapes.Add(cir);
 
                     Console.WriteLine("Вы желаете найти S(1) или P(2)");
 
@@ -117,6 +140,8 @@ class Program
 
                     Triangle tr = new Triangle(sideTring, sideTring1,sideTring2);
 
+                    listEnteredShapes.Add(tr);
+
                     Console.WriteLine("Вы желаете найти S(1) или P(2)");
 
                     int comand3 = Convert.ToInt32(Console.ReadLine());
@@ -145,6 +170,16 @@ class Program
                     Console.WriteLine($"Сумма всех S = {allSumS}");
                     break;
                 case 7:
+                    Console.Clear();
+
+                    Console.WriteLine($"Список введенных фигур:\n");
+
+                    foreach(Figure el in listEnteredShapes)
+                    {
+                        el.OutputInf();
+                    }
+                    break;
+                case 8:
                     Console.Clear();
 
                     Console.WriteLine($"Программа завершена!");
