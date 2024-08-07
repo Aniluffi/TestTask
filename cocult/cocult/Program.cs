@@ -9,7 +9,7 @@ class Program
        static double allSumP;
 
        /// <summary>
-       /// поле для хранения суммы периметров всех введенных фигур
+       /// поле для хранения суммы площадей всех введенных фигур
        /// </summary>
        static double allSumS;
 
